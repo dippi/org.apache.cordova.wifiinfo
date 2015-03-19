@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-xmlns:android="http://schemas.android.com/apk/res/android"
-           id="org.apache.cordova.wifiinfo"
-      version="0.1.1">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="org.apache.cordova.wifiinfo"
+    version="0.1.1">
 
     <name>Wifi Network Information</name>
     <description>Cordova Wifi Network Information Plugin</description>
     <license>MIT</license>
     <keywords>network,wifi,wifiinfo</keywords>
     <repo>https://github.com/dippi/org.apache.cordova.wifiinfo</repo>
- 
+
     <dependency id="org.apache.cordova.network-information" url="https://git-wip-us.apache.org/repos/asf/cordova-plugin-network-information.git" />
 
     <js-module src="www/WifiInfo.js" name="wifi">
@@ -31,5 +31,17 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         </config-file>
 
         <source-file src="src/android/CordovaWifiInfo.java" target-dir="src/org/apache/cordova/wifiinfo" />
+    </platform>
+
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/widget">
+            <feature name="WifiInfo">
+                <param name="ios-package" value="CDVWifiInfo" />
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/CDVWifiInfo.h" target-dir="HelloPlugin"/>
+        <source-file src="src/ios/CDVWifiInfo.m" target-dir="HelloPlugin"/>
     </platform>
 </plugin>
